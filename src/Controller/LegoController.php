@@ -1,36 +1,46 @@
-<?
+<?php
 
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Service\LegoService;
 
 class LegoController extends AbstractController
 {
-    #[Route('/', name: 'home')]
-    public function home()
-    {
-        $identifiant = '10252';
-        $nom = "La coccinelle Volkswagen";
-        $collection = "Creator Expert";
-        $description = "Construis une réplique LEGO® Creator Expert de l'automobile la plus populaire au monde. Ce magnifique modèle LEGO est plein de détails authentiques qui capturent le charme et la personnalité de la voiture, notamment un coloris bleu ciel, des ailes arrondies, des jantes blanches avec des enjoliveurs caractéristiques, des phares ronds et des clignotants montés sur les ailes.";
-        $prix = 94.99;
-        $pieces = 1167;
-        $imageBox = "../../public/images/LEGO_10252_Box.png";
-        $imageMain = "../../public/images/LEGO_10252_Main.png";
-        return $this->render('lego.html.twig', [
-            'lego.boxImage' => $imageBox,
-            'lego.name' => $nom,
-            'lego.collection' => $collection,
-            'lego.pieces' => $pieces,
-            'lego.price' => $prix,
-            'lego.id' => $identifiant,
-            'lego.description' => $description,
-            'lego.legoImage' => $imageMain
-        ]);
-    }
+    #[Route('/', name: 'home') ]
+    public function home(LegoService $legoService): Response
+        {   
+            $lego = $legoService->getLegos();
+            $responses = [];
+            foreach ($lego as $item) {
+                $responses[] = $this->render('lego.html.twig', [
+                    'lego' => $item
+                ])->getContent();
+            }
+            return new Response(implode('', $responses));
+        }
 
-}
+    #[Route('/{category}', name: 'filtered_by_category', requirements: ['category' => 'creator|star_wars|creator_expert'])]
+    public function filtered_by_category(LegoService $legoService, $category): Response
+        {   
+            if ($category == "creator") {
+                $category = "Creator";
+            } elseif ($category == "star_wars") {
+                $category = "Star Wars";
+            } elseif ($category == "creator_expert") {
+                $category = "Creator Expert";
+            }
+            $lego = $legoService->getLegosbyCollection($category);
+            $responses = [];
+            foreach ($lego as $item) {
+                $responses[] = $this->render('lego.html.twig', [
+                    'lego' => $item
+                ])->getContent();
+            }   
+            return new Response(implode('', $responses));
+        }
+}   
 
 // php bin/console debug:route affiche la liste des fonctions et de leurs routes respectives
