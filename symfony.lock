@@ -71,6 +71,9 @@
         ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 064dfdb (Nouvelle version du projet)
     "symfony/maker-bundle": {
         "version": "1.62",
         "recipe": {
@@ -80,8 +83,11 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+<<<<<<< HEAD
 =======
 >>>>>>> e52e564 (Nouvelle version du projet)
+=======
+>>>>>>> 064dfdb (Nouvelle version du projet)
     "symfony/routing": {
         "version": "7.2",
         "recipe": {

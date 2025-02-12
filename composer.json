@@ -70,11 +70,8 @@
             "allow-contrib": false,
             "require": "7.2.*"
         }
-<<<<<<< HEAD
     },
     "require-dev": {
         "symfony/maker-bundle": "^1.62"
-=======
->>>>>>> e52e564 (Nouvelle version du projet)
     }
 }

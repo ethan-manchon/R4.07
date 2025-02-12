@@ -1912,7 +1912,6 @@
             "time": "2024-09-25T14:20:29+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "symfony/doctrine-bridge",
             "version": "v7.2.3",
             "source": {
@@ -2022,8 +2021,6 @@
             "time": "2025-01-27T11:08:17+00:00"
         },
         {
-=======
->>>>>>> e52e564 (Nouvelle version du projet)
             "name": "symfony/dotenv",
             "version": "v7.2.0",
             "source": {
@@ -3427,7 +3424,6 @@
             "time": "2024-09-25T14:20:29+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "symfony/stopwatch",
             "version": "v7.2.2",
             "source": {
@@ -3490,8 +3486,6 @@
             "time": "2024-12-18T14:28:33+00:00"
         },
         {
-=======
->>>>>>> e52e564 (Nouvelle version du projet)
             "name": "symfony/string",
             "version": "v7.2.0",
             "source": {
@@ -4236,7 +4230,6 @@
             "time": "2025-01-29T07:06:14+00:00"
         }
     ],
-<<<<<<< HEAD
     "packages-dev": [
         {
             "name": "nikic/php-parser",
@@ -4450,9 +4443,6 @@
             "time": "2024-11-06T14:24:19+00:00"
         }
     ],
-=======
-    "packages-dev": [],
->>>>>>> e52e564 (Nouvelle version du projet)
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {},
