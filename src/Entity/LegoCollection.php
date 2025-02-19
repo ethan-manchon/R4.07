@@ -75,4 +75,10 @@ class LegoCollection
 
         return $this;
     }
+
+    // Ajoutez cette méthode pour convertir l'objet en chaîne de caractères
+    public function __toString(): string
+    {
+        return $this->name;
+    }
 }

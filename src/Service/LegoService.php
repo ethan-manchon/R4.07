@@ -22,8 +22,8 @@ class LegoService
             $lego->setDescription($item->description);
             $lego->setPrice($item->price);
             $lego->setPieces($item->pieces);
-            $lego->setboxImage($item->imagebox);
-            $lego->setlegoImage($item->imagebg);
+            $lego->setImageBox($item->ImageBox);
+            $lego->setImageMain($item->ImageMain);
             $legos[] = $lego;
         }
         return $legos;
@@ -41,8 +41,8 @@ class LegoService
             $lego->setDescription($item->description);
             $lego->setPrice($item->price);
             $lego->setPieces($item->pieces);
-            $lego->setboxImage($item->imagebox);
-            $lego->setlegoImage($item->imagebg);
+            $lego->setImageBox($item->ImageBox);
+            $lego->setImageMain($item->ImageMain);
             $legos[] = $lego;
         }
         return $legos;
@@ -59,8 +59,8 @@ class LegoService
         // $lego->setDescription($answer->description);
         // $lego->setPrice($answer->price);
         // $lego->setPieces($answer->pieces);
-        // $lego->setboxImage($answer->imagebox);
-        // $lego->setlegoImage($answer->imagebg);
+        // $lego->setboxImage($answer->Imagebox);
+        // $lego->setlegoImage($answer->ImageMain);
 
         // return $lego;
         // }
