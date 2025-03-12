@@ -421,3 +421,14 @@ nav a {
 .login-form .btn-submit {
 	width: 120px;
 }
+.error_div {
+	background-color: #f8d7da;
+	color: #721c24;
+	border: 1px solid #f5c6cb;
+	padding: 10px;
+	border-radius: 5px;
+	font-family: 'Montserrat', helvetica, arial, sans-serif;
+	font-size: 14px;
+	margin-top: 10px;
+	text-align: center;
+}

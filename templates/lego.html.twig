@@ -1,7 +1,21 @@
 {% extends 'base.html.twig' %}
 {% block title %}Lego Collection{% endblock %}
-
 {% block body %}
+
+<nav>
+    <a href="/">All</a> |
+    {% for collection in collections %}
+    <a href="collection/{{ collection.id }}">{{ collection.name }}</a> |
+    {% endfor %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+      <p>Bonjour, {{ app.user.email }}</p>
+      <button><a href="{{ disconect }}">disconnect</a></button>
+    {% else %}
+      <button><a href="{{ login }}">Login</a></button>
+    {% endif %}
+</nav>
+
+
 {% for lego in legos %}
 <div class="lego_card">
   <div class="info_section">

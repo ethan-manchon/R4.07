@@ -8,28 +8,49 @@ use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\LegoRepository;
 use App\Entity\LegoCollection;
 use App\Repository\LegoCollectionRepository;
+use App\Repository\UserRepository;
 
 class LegoController extends AbstractController
 {
 
     #[Route('/', name: 'home') ]
-    public function home(LegoRepository $legoService): Response
+    public function home(LegoRepository $legoService, LegoCollectionRepository $legoCollectionRepository): Response
     {   
+        $login = $this->generateUrl('lego_store_login');
+        $logout = $this->generateUrl('lego_store_logout');
         $legos = $legoService->findAll();
+        $collections = $legoCollectionRepository->findAll();
         return $this->render('lego.html.twig', [
-            'legos' => $legos
+            'legos' => $legos,
+            'collections' => $collections,
+            'login' => $login,
+            'logout' => $logout
         ]);
     }
-    #[Route('/test/{id}', 'test')]
-    public function test(LegoCollection $collection): Response
-    {
-        dd($collection);
-        foreach ($collection->getLegos() as $lego) {
-            return $this->render('lego.html.twig', [
-                'legos' => $legos
-            ]);
-        }
-    }
+    #[Route('/collection/{id}', name: 'collection')]
+    public function collection(LegoRepository $legoService, LegoCollectionRepository $legoCollectionRepository, string $id): Response
+    {   
+        $login = $this->generateUrl('lego_store_login');
+        $logout = $this->generateUrl('lego_store_logout');
+        $legos = $legoService->findAllByCollection($id);
+        $collections = $legoCollectionRepository->findAll();
+        return $this->render('lego.html.twig', [
+            'legos' => $legos,
+            'collections' => $collections,
+            'login' => $login,
+            'logout' => $logout
+        ]);
+        }  
+}
+                // Le mot de passe du User c'est Bonjour
+                // Le mot de passe du User c'est Bonjour
+                // Le mot de passe du User c'est Bonjour
+                // Le mot de passe du User c'est Bonjour
+                // Le mot de passe du User c'est Bonjour
+                // Le mot de passe du User c'est Bonjour
+                // Le mot de passe du User c'est Bonjour
+                // Le mot de passe du User c'est Bonjour
+
 
 
     // #[Route('/category/{category}', name: 'filtered_by_category')]
@@ -44,6 +65,6 @@ class LegoController extends AbstractController
     //     }   
     //     return new Response(implode('', $responses));
     // }
-}   
+
 
 // php bin/console debug:route affiche la liste des fonctions et de leurs routes respectives

@@ -19,11 +19,12 @@ class LegoRepository extends ServiceEntityRepository
     /**
      * @return Lego[] Returns an array of Lego objects filtered by category
      */
-    public function findAllByCollection($collection): array
+    public function findAllByCollection(string $id): array
     {
         return $this->createQueryBuilder('l')
-            ->andWhere('l.collection = :collection')
-            ->setParameter('collection', $collection)
+            // Premier parametre de andWhere est écris par rapport à l'entité et non par rapport au nom dans la base de données
+            ->andWhere('l.Collection = :collection')
+            ->setParameter('collection', $id)
             ->orderBy('l.id', 'ASC')
             ->getQuery()
             ->getResult();
