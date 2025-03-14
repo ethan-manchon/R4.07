@@ -24,6 +24,9 @@ class LegoCollection
     #[ORM\OneToMany(targetEntity: Lego::class, mappedBy: 'Collection')]
     private Collection $legos;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $premium = null;
+
     public function __construct()
     {
         $this->legos = new ArrayCollection();
@@ -80,5 +83,17 @@ class LegoCollection
     public function __toString(): string
     {
         return $this->name;
+    }
+
+    public function isPremium(): ?bool
+    {
+        return $this->premium;
+    }
+
+    public function setPremium(?bool $premium): static
+    {
+        $this->premium = $premium;
+
+        return $this;
     }
 }

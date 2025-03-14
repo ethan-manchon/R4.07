@@ -6,5 +6,4 @@ controllers:
 app_logout:
     path:
         en: /logout
-        fr: /deconnexion
     methods: GET

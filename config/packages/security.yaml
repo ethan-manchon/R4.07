@@ -20,8 +20,7 @@ security:
                 login_path: lego_store_login
                 check_path: lego_store_login
             logout:
-                path: app_logout
-
+                path: /logout
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
@@ -32,7 +31,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/collection/6, roles: ROLE_USER }
 
 when@test:
     security:

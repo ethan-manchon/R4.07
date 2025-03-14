@@ -16,6 +16,15 @@ class LegoCollectionRepository extends ServiceEntityRepository
         parent::__construct($registry, LegoCollection::class);
     }
 
+    public function findAllIsNotPremium(): array
+    {
+        return $this->createQueryBuilder('l')
+            ->andWhere('l.premium = :premium')
+            ->setParameter('premium', 0)
+            ->orderBy('l.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
     //    /**
     //     * @return LegoCollection[] Returns an array of LegoCollection objects
     //     */

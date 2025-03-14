@@ -25,7 +25,7 @@ class SecurityController extends AbstractController
     }
     #[Route('/logout', name: 'lego_store_logout')]
     public function logout(): Response
-    {     
-        // 
+    {
+        // Le code ici ne sera jamais exécuté car Symfony intercepte cette route pour gérer la déconnexion
     }
 }

@@ -29,6 +29,18 @@ class LegoRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+    public function findAllIsNotPremium(): array
+    {
+        return $this->createQueryBuilder('l')
+            ->join('l.Collection', 'c')
+            ->where('c.premium = :premium')
+            ->setParameter('premium', 0)
+            ->orderBy('l.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+
 
     //    public function findOneBySomeField($value): ?Lego
     //    {
